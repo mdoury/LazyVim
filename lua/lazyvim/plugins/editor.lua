@@ -99,12 +99,12 @@ return {
             ["<C-h>"] = function()
               util.telescope("find_files", { hidden = true })()
             end,
-            ["<C-Down>"] = function(...)
-              return require("telescope.actions").cycle_history_next(...)
-            end,
-            ["<C-Up>"] = function(...)
-              return require("telescope.actions").cycle_history_prev(...)
-            end,
+            -- ["<C-j>"] = function(...)
+            -- return require("telescope.actions").cycle_history_next(...)
+            -- end,
+            -- ["<C-k>"] = function(...)
+            -- return require("telescope.actions").cycle_history_prev(...)
+            -- end,
           },
         },
       },
@@ -129,7 +129,7 @@ return {
       local wk = require("which-key")
       wk.setup({
         plugins = { spelling = true },
-        key_labels = { ["<leader>"] = "SPC" },
+        key_labels = { ["<leader>"] = "SPC", ["∆"] = "<A-j>", ["˚"] = "<A-k>" },
       })
       wk.register({
         mode = { "n", "v" },
@@ -191,6 +191,12 @@ return {
       { "<leader>bd", function() require("mini.bufremove").delete(0, false) end, desc = "Delete Buffer" },
       { "<leader>bD", function() require("mini.bufremove").delete(0, true) end, desc = "Delete Buffer (Force)" },
     },
+  },
+
+  -- tmux integration
+  {
+    "christoomey/vim-tmux-navigator",
+    event = "VeryLazy",
   },
 
   -- better diagnostics list and others

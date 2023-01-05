@@ -12,23 +12,27 @@ vim.keymap.set("n", "<A-down>", "<C-w>j")
 vim.keymap.set("n", "<A-up>", "<C-w>k")
 vim.keymap.set("n", "<A-right>", "<C-w>l")
 
+-- Return to insert mode with jk or kj
+vim.keymap.set({ "i", "v" }, "jk", "<esc>")
+vim.keymap.set({ "i", "v" }, "jk", "<esc>")
+
 -- Resize window using <shift> arrow keys
-vim.keymap.set("n", "<S-Up>", "<cmd>resize +2<CR>")
-vim.keymap.set("n", "<S-Down>", "<cmd>resize -2<CR>")
-vim.keymap.set("n", "<S-Left>", "<cmd>vertical resize -2<CR>")
-vim.keymap.set("n", "<S-Right>", "<cmd>vertical resize +2<CR>")
+vim.keymap.set("n", "<S-Up>", "<cmd>resize +2<CR>", { desc = "Extend window vertically" })
+vim.keymap.set("n", "<S-Down>", "<cmd>resize -2<CR>", { desc = "Shrink window vertically" })
+vim.keymap.set("n", "<S-Left>", "<cmd>vertical resize -2<CR>", { desc = "Shrink window horizontally" })
+vim.keymap.set("n", "<S-Right>", "<cmd>vertical resize +2<CR>", { desc = "Extend window vertically" })
 
 -- Move Lines
-vim.keymap.set("n", "<A-j>", ":m .+1<CR>==")
-vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv")
-vim.keymap.set("i", "<A-j>", "<Esc>:m .+1<CR>==gi")
-vim.keymap.set("n", "<A-k>", ":m .-2<CR>==")
-vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv")
-vim.keymap.set("i", "<A-k>", "<Esc>:m .-2<CR>==gi")
+vim.keymap.set("n", "∆", ":m .+1<CR>==", { desc = "Move line down" })
+vim.keymap.set("v", "∆", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
+vim.keymap.set("i", "∆", "<Esc>:m .+1<CR>==gi", { desc = "Move line down" })
+vim.keymap.set("n", "˚", ":m .-2<CR>==", { desc = "Move line up" })
+vim.keymap.set("v", "˚", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
+vim.keymap.set("i", "˚", "<Esc>:m .-2<CR>==gi", { desc = "Move line up" })
 
 -- Switch buffers with <ctrl>
-vim.keymap.set("n", "<C-Left>", "<cmd>bprevious<cr>")
-vim.keymap.set("n", "<C-Right>", "<cmd>bnext<cr>")
+vim.keymap.set("n", "<C-p>", "<cmd>bprevious<cr>")
+vim.keymap.set("n", "<C-n>", "<cmd>bnext<cr>")
 
 -- Easier pasting
 vim.keymap.set("n", "[p", ":pu!<cr>")

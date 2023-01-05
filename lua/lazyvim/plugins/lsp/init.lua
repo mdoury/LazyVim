@@ -49,13 +49,14 @@ return {
   -- formatters
   {
     "jose-elias-alvarez/null-ls.nvim",
-    event = "BufReadPre",
+    event = "BufReadPost",
     dependencies = { "mason.nvim" },
     config = function()
       local nls = require("null-ls")
+
       nls.setup({
         sources = {
-          -- nls.builtins.formatting.prettierd,
+          nls.builtins.formatting.prettierd,
           nls.builtins.formatting.stylua,
           nls.builtins.diagnostics.flake8,
         },

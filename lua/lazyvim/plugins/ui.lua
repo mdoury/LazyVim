@@ -119,6 +119,7 @@ return {
         override = {
           ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
           ["vim.lsp.util.stylize_markdown"] = true,
+          ["cmp.entry.get_documentation"] = true,
         },
       },
       presets = {
@@ -211,15 +212,15 @@ return {
     config = function()
       local dashboard = require("alpha.themes.dashboard")
       local logo = [[
-             ██╗      █████╗ ███████╗██╗   ██╗██╗   ██╗██╗███╗   ███╗          Z
-             ██║     ██╔══██╗╚══███╔╝╚██╗ ██╔╝██║   ██║██║████╗ ████║      Z    
-             ██║     ███████║  ███╔╝  ╚████╔╝ ██║   ██║██║██╔████╔██║   z       
-             ██║     ██╔══██║ ███╔╝    ╚██╔╝  ╚██╗ ██╔╝██║██║╚██╔╝██║ z         
-             ███████╗██║  ██║███████╗   ██║    ╚████╔╝ ██║██║ ╚═╝ ██║
-             ╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝     ╚═══╝  ╚═╝╚═╝     ╚═╝
+██╗   ██╗███╗   ██╗ ██████╗██████╗  █████╗ ███████╗████████╗
+██║   ██║████╗  ██║██╔════╝██╔══██╗██╔══██╗██╔════╝╚══██╔══╝
+██║   ██║██╔██╗ ██║██║     ██████╔╝███████║█████╗     ██║   
+██║   ██║██║╚██╗██║██║     ██╔══██╗██╔══██║██╔══╝     ██║   
+╚██████╔╝██║ ╚████║╚██████╗██║  ██║██║  ██║██║        ██║   
+ ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝        ╚═╝   
       ]]
 
-      dashboard.section.header.val = vim.split(logo, "\n")
+      dashboard.section.header.val = vim.split(logo, "\n", {})
       dashboard.section.buttons.val = {
         dashboard.button("f", " " .. " Find file", ":Telescope find_files <CR>"),
         dashboard.button("n", " " .. " New file", ":ene <BAR> startinsert <CR>"),

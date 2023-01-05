@@ -1,21 +1,35 @@
 return {
 
   -- tokyonight
+  -- {
+  --   "folke/tokyonight.nvim",
+  --   -- lazy = false,
+  --   -- priority = 1000,
+  --   config = function()
+  --     local tokyonight = require("tokyonight")
+  --     tokyonight.setup({ style = "moon" })
+  --     tokyonight.load()
+  --   end,
+  -- },
+
+  -- nord
   {
-    "folke/tokyonight.nvim",
+    "shaunsingh/nord.nvim",
     lazy = false,
     priority = 1000,
     config = function()
-      local tokyonight = require("tokyonight")
-      tokyonight.setup({ style = "moon" })
-      tokyonight.load()
+      vim.cmd([[colorscheme nord]])
     end,
   },
 
   -- catppuccin
-  {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    priority = 1000,
-  },
+  -- {
+  --   "catppuccin/nvim",
+  --   name = "catppuccin",
+  --   -- lazy = false,
+  --   -- priority = 1000,
+  --   config = function()
+  --     vim.cmd([[colorscheme catppuccin-mocha]])
+  --   end,
+  -- },
 }
